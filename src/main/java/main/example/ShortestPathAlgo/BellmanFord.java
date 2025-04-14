@@ -48,7 +48,7 @@ public class BellmanFord implements ShortestPathStrategy {
     @Override
     public String shortestPath(int start, int end) {
         if (dist[end] == Integer.MAX_VALUE) {
-            return " ";
+            return "No Path";
         }
 
         List<Integer> path = new ArrayList<>();
