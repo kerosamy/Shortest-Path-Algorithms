@@ -1,5 +1,6 @@
 package main.example;
 
+import main.example.ShortestPathAlgo.BellmanFord;
 import main.example.ShortestPathAlgo.Pair;
 import main.example.ShortestPathAlgo.floydWarshall;
 
@@ -17,7 +18,9 @@ public class Main {
         for (int i = 0; i < numberOfNodes; i++) {
             adjList.add(new ArrayList<>());
         }
+
         BufferedReader br = new BufferedReader(new FileReader("/home/ayman-kotb/Shortest-Path-Algorithms/src/main/java/main/example/ShortestPathAlgo/be"));
+
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.trim().split("\\s+");
@@ -37,6 +40,14 @@ public class Main {
         }
         floydWarshall fw = new floydWarshall();
         fw.shortestPathRun(adjList, 1);
+
+
+        BellmanFord bolbol = new BellmanFord();
+        int start = 3;
+        bolbol.shortestPathRun(adjList, start);
+        int end =9;
+        System.out.println("Distance from " + start + " to " + end + ": " + bolbol.shortestPathDistance(start, end));
+        System.out.println("Path from " + start + " to " + end + ": " + bolbol.shortestPath(start, end));
 
     }
 }
