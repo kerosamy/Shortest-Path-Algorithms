@@ -2,6 +2,8 @@ package main.example;
 
 import main.example.ShortestPathAlgo.BellmanFord;
 import main.example.ShortestPathAlgo.Pair;
+import main.example.ShortestPathAlgo.floydWarshall;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,7 +18,9 @@ public class Main {
         for (int i = 0; i < numberOfNodes; i++) {
             adjList.add(new ArrayList<>());
         }
-        BufferedReader br = new BufferedReader(new FileReader("/home/john/DSA-Labs/Shortest-Path-Algorithms/src/main/java/main/example/ShortestPathAlgo/fluid and bellman ford"));
+
+        BufferedReader br = new BufferedReader(new FileReader("/home/ayman-kotb/Shortest-Path-Algorithms/src/main/java/main/example/ShortestPathAlgo/be"));
+
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.trim().split("\\s+");
@@ -34,6 +38,8 @@ public class Main {
             }
             System.out.println();
         }
+        floydWarshall fw = new floydWarshall();
+        fw.shortestPathRun(adjList, 1);
 
 
         BellmanFord bolbol = new BellmanFord();
