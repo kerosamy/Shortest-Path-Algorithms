@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="58806348-44ae-4482-9509-5540276020e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/main/java/main/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/example/ShortestPathAlgo/BellmanFord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/example/ShortestPathAlgo/BellmanFord.java" afterDir="false" />
 
@@ -31,6 +32,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "caroline-2"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kerosamy/Shortest-Path-Algorithms.git",
+    "accountId": "be184d5f-9140-4975-ae97-57e982d461fe"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -56,6 +69,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="shortest path algorithms" />
@@ -93,6 +107,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
+
     <configuration default="true" type="JetRunConfigurationType">
       <module name="shortest path algorithms" />
       <method v="2">
@@ -108,6 +123,7 @@
         <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
+
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -125,5 +141,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
