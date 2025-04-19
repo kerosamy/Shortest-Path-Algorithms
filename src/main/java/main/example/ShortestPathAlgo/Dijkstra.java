@@ -38,7 +38,7 @@ public class Dijkstra implements ShortestPathStrategy {
     @Override
     public String shortestPath(int start, int end) {
         if (dist[end]==Integer.MAX_VALUE) {
-            return " ";
+            return "No Path";
         }
         List<Integer>path=new ArrayList<>();
         int x=end;
@@ -51,7 +51,12 @@ public class Dijkstra implements ShortestPathStrategy {
     }
 
     @Override
-    public int shortestPathDistance(int start, int end) {
-        return dist[end]==Integer.MAX_VALUE ? -1 : dist[end];
+    public boolean hasNegativeCycle(){
+        return false;
+    }
+
+    @Override
+    public String shortestPathDistance(int start, int end) {
+        return dist[end]==Integer.MAX_VALUE ? "INF" : String.valueOf(dist[end]);
     }
 }

@@ -1,31 +1,28 @@
 package main.example.ShortestPathAlgo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class floydWarshall implements ShortestPathStrategy {
     private int [][] graph;
     private int n ;
     private ArrayList<ArrayList<Integer>> path;
 
-    public boolean hasNegativeCycle() {
-        for (int k = 0; k < n; k++) {
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (graph[i][k] + graph[k][j] < graph[i][j]) {
-                        return true;  // Negative cycle found
-                    }
-                }
+    public boolean hasNegativeCycles() {
+        for (int i = 0; i < n; i++) {
+            if (graph[i][i] < 0) {
+                return true; // 🔥 Negative cycle detected
             }
         }
         return false;
     }
+
     public String shortestPath(int i , int j) {
-        if (hasNegativeCycle()) {
-            System.out.println("Graph contains a negative cycle!");
-            return "";
+        if (hasNegativeCycles()) {
+            return "Negative Cycle";
         }
         if (this.path.get(i-1).get(j-1)==-1) {
-            return "-1";
+            return "No Path";
         }
         ArrayList<Integer> nodes = new ArrayList<>();
         int current = i-1 ;
@@ -36,14 +33,25 @@ public class floydWarshall implements ShortestPathStrategy {
             nodes.add(current+1);
         }
         nodes.add(target+1);
-        String x = "";
+        List<Integer> x=new ArrayList<>();
         for (int k = 0; k < nodes.size(); k++) {
-            x+= nodes.get(k).toString() + "--> " ;
+            x.add(nodes.get(k));
         }
-        return x;
+        x.remove(nodes.get(nodes.size()-1));
+        return x.toString();
     }
-    public int shortestPathDistance(int i , int j) {
-        return graph[i-1][j-1];
+    @Override
+    public boolean hasNegativeCycle(){
+       return hasNegativeCycles();
+    }
+    public String shortestPathDistance(int i , int j) {
+        if(graph[i-1][j-1]==100000){
+            return "INF";
+        }
+        if(hasNegativeCycle()){
+            return "Negative Cycle";
+        }
+        return String.valueOf(graph[i-1][j-1]);
     }
     public void print(){
         for (int i = 0; i < n; i++) {
@@ -85,6 +93,6 @@ public class floydWarshall implements ShortestPathStrategy {
                 }
             }
         }
-        print();
+
     }
 }

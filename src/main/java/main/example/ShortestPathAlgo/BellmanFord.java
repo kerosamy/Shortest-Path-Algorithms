@@ -6,10 +6,12 @@ public class BellmanFord implements ShortestPathStrategy {
     private int[] dist;
     private int[] parent;
     private int n;
+    private ArrayList<ArrayList<Pair<Integer,Integer>>> graph ;
 
     @Override
     public void shortestPathRun(ArrayList<ArrayList<Pair<Integer,Integer>>> graph, int start) {
         this.n = graph.size();
+        this.graph = graph;
         dist = new int[n];
         parent = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
@@ -38,7 +40,7 @@ public class BellmanFord implements ShortestPathStrategy {
                 int weight = edge.second;
                 if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
                     // If we find a shorter path, it means there is a negative cycle
-                    System.out.println("Graph contains a negative weight cycle");
+
                     return;
                 }
             }
@@ -49,6 +51,9 @@ public class BellmanFord implements ShortestPathStrategy {
     public String shortestPath(int start, int end) {
         if (dist[end] == Integer.MAX_VALUE) {
             return "No Path";
+        }
+        if(hasNegativeCycle()){
+            return "Negative Cycle";
         }
 
         List<Integer> path = new ArrayList<>();
@@ -63,9 +68,26 @@ public class BellmanFord implements ShortestPathStrategy {
         Collections.reverse(path);  // Reverse to get the path from start to end
         return path.toString();
     }
+    @Override
+    public boolean hasNegativeCycle(){
+        for (int u = 0; u < n; u++) {
+            for (Pair<Integer, Integer> edge : graph.get(u)) {
+                int v = edge.first;
+                int weight = edge.second;
+                if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
+                    // If we find a shorter path, it means there is a negative cycle
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     @Override
-    public int shortestPathDistance(int start, int end) {
-        return dist[end] == Integer.MAX_VALUE ? -1 : dist[end];
+    public String shortestPathDistance(int start, int end) {
+        if(hasNegativeCycle()){
+            return "Negative Cycle";
+        }
+        return dist[end] == Integer.MAX_VALUE ? "INF" :String.valueOf(dist[end]) ;
     }
 }
